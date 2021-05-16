@@ -113,11 +113,16 @@ class UserInterface{
             this.game.getPlayers()[0].setChoice(prompt('what is your choice?'));
             this.game.getPlayers()[1].setChoice(this.randomChoice()); 
             // decide winner
-            console.log(this.game.decideRoundWinner()); //decide winner
+            var round_msg = '<h2>' + this.game.decideRoundWinner() + '</h2>';
+            console.log(round_msg); //decide winner
+            console.log(this);
+            console.log(window.document);
+            window.document.getElementById("results").innerHTML = round_msg;
             this.game.incrementRound();
         }
-
-        console.log('Winner is: '+ this.game.finalResults(this.numOfRounds)+'! Congratulations!');
+        var final_msg = '<h2>Winner is: '+ this.game.finalResults(this.numOfRounds)+'! Congratulations!</h2>';
+        document.getElementById("results").innerHTML = final_msg;
+        console.log(final_msg);
 
     } 
 }
